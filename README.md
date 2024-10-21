@@ -1,6 +1,22 @@
-# Discord Subsonic Music Bot
+# SubChordium
 
-#### A music bot that connects Discord and subsonic servers.
+#### A Discord bot that browses and plays music from one or multiple Subsonic servers.
+
+### Why the name SubChordium?
+
+#### `Sub`sonic for the source medium. Dis`C`h`ord` for the target medium written with an h to make it more musical. And `ium` to make it sound like an element.
+
+### Features
+
+- Play music from one or multiple Subsonic servers.
+- Search and queue system with pagination.
+- Usual player controls: `Pause`, `Continue`, `Stop`, `Skip`, `Shuffle` via Discord [/commands](https://discord.com/developers/docs/interactions/application-commands).
+
+### Prerequisites
+
+- **Node.JS** (Guide on [nodejs.org](https://nodejs.org)) - _Tested versions: 18, 20 & 22_
+- **Discord Bot** (Guide on [discord.com](https://discord.com/developers/docs/getting-started))
+- **Subsonic Server** (Guide on [subsonic.org](https://www.subsonic.org/pages/help.jsp))
 
 ### Installation
 
@@ -17,40 +33,41 @@ npm install
 ```
 
 3. Copy `credentials.template.json` to `credentials.json`.
-4. Insert your credentials into `credentials.json`. You can add as many subsonic servers as you want:
+4. [Insert](README.md#credentialsjson) your credentials into `credentials.json`.
+5. Copy `config.template.json` to `config.json`.
+6. [Adjust](README.md#configjson) the `config.json` to your needs.
 
-Example (**not actual credentials!**):
+### [credentials.json](credentials.json)
 
-```json
-{
-  "version": 2,
-  "discord": {
-    "token": "ASDgjDFHG5SDg3SGTaDFG5H3.DFGgfC.5DFGg3SFbGRF3EFsdf-SD2as_Da2Av_ASdxAGd",
-    "client_id": "342087563429345872"
-  },
-  "subsonic": [
-    {
-      "name": "Server 1",
-      "protocol": "https",
-      "host": "example.com",
-      "port": "4533",
-      "username": "sk4terb0y",
-      "password": "cul8erboy"
-    },
-    {
-      "name": "Server 2",
-      "protocol": "http",
-      "host": "localhost",
-      "port": "80",
-      "username": "admin",
-      "password": "4dM1n"
-    }
-  ]
-}
-```
+| name                           | type   | description                                                         |
+| ------------------------------ | ------ | ------------------------------------------------------------------- |
+| version                        | number | The version of the credentials file. Should not be edited manually. |
+| [discord](README.md#discord)   | object | The discord bot credentials.                                        |
+| [subsonic](README.md#subsonic) | array  | The subsonic server credentials.                                    |
 
-### Start the bot:
+#### discord
 
-```shell
-npm start
-```
+| name      | type   | description                |
+| --------- | ------ | -------------------------- |
+| token     | string | The discord bot token.     |
+| client_id | string | The discord bot client id. |
+
+#### subsonic
+
+| name     | type   | default | description                          |
+| -------- | ------ | ------- | ------------------------------------ |
+| name     | string |         | The name of the subsonic server.     |
+| protocol | string | http    | The protocol of the subsonic server. |
+| host     | string |         | The host of the subsonic server.     |
+| port     | string | 80      | The port of the subsonic server.     |
+| username | string |         | The username of the subsonic server. |
+| password | string |         | The password of the subsonic server. |
+
+### [config.json](config.json)
+
+| name           | type            | default | description                                                              |
+| -------------- | --------------- | ------- | ------------------------------------------------------------------------ |
+| volume         | number (0-1000) | 100     | The volume for the player.                                               |
+| showProvider   | boolean         | true    | Whether to show the provider (subsonic server) of the song in the queue. |
+| maxPageEntries | number          | 10      | The maximum number of entries per page.                                  |
+| bufferTime     | number          | 3000    | The buffer time of the player. Only change if you experience issues.     |
