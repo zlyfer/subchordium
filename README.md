@@ -33,17 +33,17 @@ npm install
 ```
 
 3. Copy `credentials.template.json` to `credentials.json`.
-4. [Insert](README.md#credentialsjson) your credentials into `credentials.json`.
+4. [Insert](#credentialsjson) your credentials into `credentials.json`.
 5. Copy `config.template.json` to `config.json`.
-6. [Adjust](README.md#configjson) the `config.json` to your needs.
+6. [Adjust](#configjson) the `config.json` to your needs.
 
 ### [credentials.json](credentials.json)
 
 | name                           | type   | description                                                         |
 | ------------------------------ | ------ | ------------------------------------------------------------------- |
 | version                        | number | The version of the credentials file. Should not be edited manually. |
-| [discord](README.md#discord)   | object | The discord bot credentials.                                        |
-| [subsonic](README.md#subsonic) | array  | The subsonic server credentials.                                    |
+| [discord](#discord)   | object | The discord bot credentials.                                        |
+| [subsonic](#subsonic) | array  | The subsonic server credentials.                                    |
 
 #### discord
 
