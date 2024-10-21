@@ -32,9 +32,9 @@ git clone https://github.com/zlyfer/subsonic-music-bot
 npm install
 ```
 
-3. Copy `credentials.template.json` to `credentials.json`.
+3. Copy [`credentials.template.json`](credentials.template.json) to `credentials.json`.
 4. [Insert](#credentialsjson) your credentials into `credentials.json`.
-5. Copy `config.template.json` to `config.json`.
+5. Copy [`config.template.json`](config.template.json) to `config.json`.
 6. [Adjust](#configjson) the `config.json` to your needs.
 
 ### [credentials.json](credentials.json)
